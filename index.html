@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thejas | Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f8f9fa;
+      overflow-x: hidden;
+    }
+
+    section {
+      padding: 80px 10% 60px;
+    }
+
+    h2.section-title {
+      font-size: 2.2rem;
+      color: #222;
+      margin-bottom: 20px;
+      border-left: 5px solid #00e3aa;
+      padding-left: 15px;
+    }
+
+    p.section-text {
+      color: #444;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0 5%;
+      background-color: #f0f8ff;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .hero-img-container {
+      width: 300px;
+      height: 300px;
+      overflow: hidden;
+      border-radius: 50%;
+      border: 5px solid #00e3aa;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .hero-img-container:hover img {
+      transform: scale(1.1);
+    }
+
+    .hero-right {
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .hero-right h1 {
+      font-size: 2.8rem;
+      color: #222;
+      margin-bottom: 10px;
+    }
+
+    .hero-right p {
+      font-size: 1.2rem;
+      color: #444;
+      margin-bottom: 30px;
+    }
+
+    .menu-btn {
+      padding: 12px 24px;
+      background-color: #00e3aa;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    .menu-btn:hover {
+      background-color: #00c399;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 40px 20px;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-img-container {
+        width: 200px;
+        height: 200px;
+      }
+
+      .hero-right h1 {
+        font-size: 2rem;
+      }
+
+      .hero-right p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Hero Section -->
+<section class="hero" id="hero">
+  <div class="hero-img-container">
+    <img src="herosec.jpg" alt="Thejas">
+  </div>
+  <div class="hero-right">
+    <h1>Hello, I'm Thejas</h1>
+    <p>Aspiring Data Scientist | Python & ML Enthusiast</p>
+    <button class="menu-btn" onclick="openMenu()">Know Me More</button>
+  </div>
+</section>
+
+<!-- Menu Overlay -->
+<div class="menu-overlay" id="menuOverlay">
+  <div class="close-btn" onclick="closeMenu()">×</div>
+  <a href="#about">About Me</a>
+  <a href="#education">Education</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills & Certifications</a>
+  <a href="#contact">Let's Connect</a>
+</div>
+
+<!-- About Section -->
+<section id="about" class="about-section">
+  <h2 class="section-title">About Me</h2>
+  <div class="about-container">
+    <div class="about-text">
+      <p class="section-text">
+        Thejas here. I'm in my third year at Alva's Institute of Engineering and Technology and currently pursuing a degree in Data Science. I have a keen interest in how data can be utilized to make better decisions, eliminate problems, and enhance daily activities.<br><br>
+        My interests were developed further by working on academic projects such as a <strong>Heart Disease Diagnosis System</strong> and a <strong>Placement Management System</strong> with OCR and chatbot functionalities. I appreciate collaborating on projects as it propels my learning.<br><br>
+        I am dedicated to developing my knowledge, but I also relish a good trek as well as traveling. In addition to these interests, I also enjoy staying active whether that’s playing or watching sports.
+      </p>
+    </div>
+
+    <div class="about-images-grid">
+      <div class="img-tall"><img src="thejas.jpg" alt="Event"></div>
+      <div class="img-wide"><img src="groupphoto.jpg" alt="Team"></div>
+      <div class="img-square"><img src="travel.png" alt="Hackathon"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Menu Overlay */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.menu-overlay.active {
+  display: flex;
+}
+
+.menu-overlay a {
+  font-size: 1.5rem;
+  margin: 15px 0;
+  color: #111;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.menu-overlay a:hover {
+  color: #00e3aa;
+}
+
+.close-btn {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+}
+
+/* About Section */
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.about-text {
+  flex: 1 1 400px;
+  max-width: 500px;
+}
+
+.about-images-grid {
+  flex: 1 1 400px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  grid-auto-rows: 150px;
+  gap: 15px;
+}
+
+.about-images-grid div {
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.about-images-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.about-images-grid img:hover {
+  transform: scale(1.05);
+}
+
+.img-tall {
+  grid-row: span 2;
+}
+
+.img-wide {
+  grid-column: span 2;
+}
+
+.img-square {
+  grid-row: span 1;
+  grid-column: span 1;
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-images-grid {
+    grid-auto-rows: 130px;
+  }
+
+  .menu-overlay a {
+    font-size: 1.2rem;
+  }
+}
+</style>
+
+<script>
+function openMenu() {
+  document.getElementById("menuOverlay").classList.add("active");
+}
+
+function closeMenu() {
+  document.getElementById("menuOverlay").classList.remove("active");
+}
+
+// Smooth scroll and close menu on link click
+document.querySelectorAll('.menu-overlay a').forEach(link => {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href').substring(1);
+    const targetEl = document.getElementById(targetId);
+    if (targetEl) {
+      targetEl.scrollIntoView({ behavior: 'smooth' });
+    }
+    closeMenu();
+  });
+});
+</script>
+<section id="education" class="section-relative" style="padding: 50px 10% 80px; background: #f9f9f9;">
+  <h2 class="section-title">Education</h2>
+
+  <div class="edu-cards">
+    <div class="edu-card">
+      <h3>Alva’s Institute of Engineering and Technology</h3>
+      <p class="edu-degree">B.E. in Data Science <span class="edu-year">2022 - 2026</span></p>
+      <p class="edu-extra">GPA: 3.8 / 5</p>
+      <p class="edu-extra"><strong>Coursework:</strong> Data Science, Natural Language Processing, Machine Learning, DSA</p>
+    </div>
+
+    <div class="edu-card">
+      <h3>Vani Pre-University College</h3>
+      <p class="edu-degree">PUC - PCMB <span class="edu-year">2020 - 2022</span></p>
+      <p class="edu-extra">Percentage: 72.5%</p>
+      <p class="edu-extra"><strong>Subjects:</strong> Physics, Chemistry, Math, Biology</p>
+    </div>
+
+    <div class="edu-card">
+      <h3>DKZP Government High School</h3>
+      <p class="edu-degree">SSLC <span class="edu-year">2018 - 2020</span></p>
+      <p class="edu-extra">Percentage: 95.68%</p>
+    </div>
+  </div>
+
+  <button class="floating-menu-btn" onclick="goToHero()">⬆ Back to Menu</button>
+</section>
+
+<style>
+    
+.edu-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.edu-card {
+  background: #fff;
+  border-left: 5px solid #00e3aa;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.edu-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.edu-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #111;
+}
+
+.edu-card p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.edu-card p strong {
+  color: #000;
+}
+
+
+.floating-menu-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  padding: 10px 18px;
+  background-color: #00e3aa;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+  display: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.floating-menu-btn:hover {
+  background-color: #00c399;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .edu-year {
+    float: none;
+    display: block;
+    margin-top: 5px;
+  }
+}
+</style>
+
+<script>
+function goToHero() {
+  document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
+  openMenu();
+}
+
+// Show floating button only after scrolling down a bit
+window.addEventListener('scroll', () => {
+  const button = document.querySelector('.floating-menu-btn');
+  if (window.scrollY > 400) {
+    button.style.display = 'block';
+  } else {
+    button.style.display = 'none';
+  }
+});
+</script>
+
+
+
+
+  <section id="projects" style="padding: 80px 10% 80px; background: #f9f9f9;">
+  <h2 class="section-title">My Projects</h2>
+  <div class="projects-container">
+
+    <!-- Project 1 -->
+    <div class="project-card">
+      <button class="project-toggle">Placement Management System <span class="status">Ongoing ▼</span></button>
+      <div class="project-details">
+        <p>
+          A system for departments to manage placement drives, monitor student progress, and assist students via a chatbot.
+          Includes OCR integration to scan and auto-upload academic scores.
+        </p>
+        <ul>
+      <li>Enables administrators to manage placement drives, track student performance, and view overall progress.</li>
+      <li>Integrated a chatbot to assist students with common queries regarding companies, drives, and eligibility.</li>
+    </ul>
+        <p><strong>Tech:</strong> Python, Firebase, Chatbot API, OCR (Tesseract)</p>
+        <div class="project-links">
+          <a href="https://github.com/yourusername/placement-management-system" target="_blank">GitHub</a>
+        </div>
+        <!-- Inside project-details div -->
+<div class="project-screenshot">
+  <img src="images/placement-system.png" alt="Placement Management System Screenshot">
+</div>
+
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card">
+      <button class="project-toggle">Heart Disease Diagnosis System <span class="status">Completed ▼</span></button>
+      <div class="project-details">
+        <p>
+          ML model to predict heart disease risk using clinical data and classification algorithms.
+          Visualized health indicators and evaluated model performance using accuracy and ROC-AUC.
+        </p>
+        <ul>
+      <li>Trained multiple classification models (Logistic Regression, Random Forest, etc.) using a labeled dataset.</li>
+      <li>Performed data preprocessing, feature selection, and visual exploration to identify key health indicators.</li>
+    </ul>
+        <p><strong>Tech:</strong> Python, Scikit-learn, Pandas, Matplotlib</p>
+        <div class="project-links">
+          <a href="https://github.com/thejasshetty05/heart-disease-diagnosis" target="_blank">GitHub</a>
+        </div>
+        <!-- Inside project-details div -->
+<div class="project-screenshot">
+  <img src="heartdiseasediag.png" alt="Placement Management System Screenshot">
+</div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <style>
+    .project-screenshot {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.project-screenshot img {
+  width: 80%;
+  max-width: 1000px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.project-screenshot img:hover {
+  transform: scale(1.02);
+}
+
+    .projects-container {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    .project-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .project-toggle {
+      width: 100%;
+      background: #00e3aa;
+      color: #fff;
+      border: none;
+      padding: 15px 20px;
+      font-size: 1.2rem;
+      text-align: left;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      border-radius: 12px;
+    }
+
+    .project-details {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 20px;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      font-size: 1rem;
+      background: #fff;
+    }
+
+    .project-details.open {
+      max-height: 400px;
+      padding: 15px 20px 25px;
+    }
+
+    .project-links {
+      margin-top: 10px;
+    }
+
+    .project-links a {
+      display: inline-block;
+      background: #007acc;
+      color: #fff;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      margin-right: 10px;
+      font-size: 0.95rem;
+      transition: background 0.3s ease;
+    }
+
+    .project-links a:hover {
+      background: #005fa3;
+    }
+
+    .status {
+      font-size: 0.9rem;
+      font-weight: normal;
+    }
+  </style>
+
+  <script>
+    document.querySelectorAll('.project-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const details = button.nextElementSibling;
+        const isOpen = details.classList.contains('open');
+        document.querySelectorAll('.project-details.open').forEach(open => {
+          open.classList.remove('open');
+          const stat = open.previousElementSibling.querySelector('.status');
+          stat.textContent = stat.textContent.includes('Ongoing') ? 'Ongoing ▼' : 'Completed ▼';
+        });
+        if (!isOpen) {
+          details.classList.add('open');
+          const stat = button.querySelector('.status');
+          stat.textContent = stat.textContent.includes('Ongoing') ? 'Ongoing ▲' : 'Completed ▲';
+        }
+      });
+    });
+  </script>
+</section>
+
+
+  <section id="skills" style="padding: 40px 10% 80px; background: #f9f9f9;">
+  <h2 class="section-title">Skills & Certifications</h2>
+
+  <div class="skills-grid">
+    <div class="card">
+      <h3>Technical Skills</h3>
+      <p><strong>Programming Languages:</strong></p>
+      <ul class="badge-list">
+        <li>Python</li>
+        <li>C/C++</li>
+        <li>Java</li>
+        <li>SQL</li>
+        <li>JavaScript</li>
+      </ul>
+
+      <p><strong>Tools & Platforms:</strong></p>
+      <ul class="badge-list">
+        <li>Git</li>
+        <li>Power BI</li>
+        <li>Tableau</li>
+        <li>Microsoft Excel</li>
+        <li>MySQL</li>
+        <li>MongoDB</li>
+        <li>ServiceNow</li>
+        <li>Salesforce</li>
+      </ul>
+
+      <p><strong>Soft Skills:</strong></p>
+      <ul class="badge-list">
+        <li>Communication</li>
+        <li>Teamwork</li>
+        <li>Problem-Solving</li>
+      </ul>
+      <p><strong>Languages Known:</strong></p>
+      <ul class="badge-list">
+        <li>English – Fluent</li>
+        <li>Hindi – Fluent</li>
+        <li>Kannada – Native</li>
+      </ul>
+    </div>
+
+    <div class="card">
+
+      <h3>Certifications</h3>
+      <div class="cert-group">
+        <p><strong>NPTEL</strong></p>
+        <ul class="list">
+          <li>Problem Solving Through Programming in C</li>
+          <li>Data Structures, Algorithms and Problem Solving Using Python</li>
+        </ul>
+
+        <p><strong>Infosys Springboard</strong></p>
+        <ul class="list">
+          <li>Artificial Intelligence</li>
+          <li>Introduction to AI</li>
+          <li>Introduction to Data Science</li>
+        </ul>
+
+        <p><strong>Coursera</strong></p>
+        <ul class="list">
+          <li>Generative AI: Introduction and Applications</li>
+        </ul>
+
+        <p><strong>Manipal Institute of Technology</strong></p>
+        <ul class="list">
+          <li>Digital Transformation – Intelligent Technology & Sustainability (Workshop)</li>
+        </ul>
+
+        <p><strong>HackerRank</strong></p>
+        <ul class="list">
+          <li>Python (Certified)</li>
+          <li>SQL (Certified)</li>
+        </ul>
+      </div>
+      <div style="text-align: center; margin-top: 20px;">
+  <a href="https://drive.google.com/drive/folders/11djDALXVRLf5Z_mvbZZAD8vj9R-b0m9P?usp=sharing" target="_blank" class="cert-btn">
+    📂 View All Certificates
+  </a>
+</div>
+    </div>
+    
+
+  </div>
+
+<style>
+  .cert-btn {
+  background-color: #0369a1;
+  color: white;
+  padding: 6px 16px;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 20px;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  display: inline-block;
+}
+
+.cert-btn:hover {
+  background-color: #0284c7;
+  transform: scale(1.05);
+}
+
+  .skills-certifications {
+    padding: 40px 20px;
+    background: #f9f9f9;
+  }
+
+  .skills-certifications h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  .card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .card h3 {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    color: #333;
+  }
+
+  .badge-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 20px;
+  }
+
+  .badge-list li {
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+  }
+
+  .list {
+    list-style-type: disc;
+    margin: 10px 0 20px 20px;
+    padding: 0;
+    color: #555;
+    font-size: 14px;
+  }
+
+  .cert-group p {
+    margin: 10px 0 5px;
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .card {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Zoom effect on hover */
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+</style> 
+</section>
+
+
+
+
+ <section class="lets-connect" id="contact">
+  <h2>Let's Connect</h2>
+  <p>Feel free to reach out for collaborations, internships, or just a tech chat!</p>
+
+  <div class="connect-card">
+    <div class="social-links">
+      <a href="https://github.com/thejasshetty05" target="_blank" title="GitHub">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+      </a>
+      <a href="https://www.linkedin.com/in/thejas-shetty05" target="_blank" title="LinkedIn">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
+      </a>
+      <a href="mailto:thejast758@gmail.com" title="Gmail">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Email">
+      </a>
+    </div>
+
+    <a href="https://drive.google.com/file/d/1wBC2OnG8Pm2GZziTSLtUzZaQqK67CDoi/view" target="_blank" class="resume-btn">📄 View Resume</a>
+    <a href="https://drive.google.com/uc?export=download&id=1wBC2OnG8Pm2GZziTSLtUzZaQqK67CDoi" class="resume-btn download">⬇️ Download Resume</a>
+  </div>
+</section>
+
+<style>
+.lets-connect {
+  padding: 60px 20px;
+  background: #f0f4f8;
+  text-align: center;
+}
+
+.lets-connect h2 {
+  font-size: 2.2em;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+.lets-connect p {
+  color: #475569;
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+.connect-card {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 25px;
+}
+
+.social-links a img {
+  width: 38px;
+  height: 38px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 50%;
+}
+
+.social-links a:hover img {
+  transform: scale(1.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.resume-btn {
+  display: inline-block;
+  margin: 8px;
+  padding: 10px 18px;
+  font-size: 15px;
+  border: none;
+  border-radius: 25px;
+  background-color: #3b82f6;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.resume-btn.download {
+  background-color: #10b981;
+}
+
+.resume-btn:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+.resume-btn.download:hover {
+  background-color: #059669;
+}
+</style>
+
+
+<style>
+  .connect-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f3f4f6;
+  }
+
+  .connect-section h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+
+  .connect-section p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+  }
+
+  .contact-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  .btn-connect {
+    padding: 10px 20px;
+    background-color: #0369a1;
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-connect:hover {
+    background-color: #024f70;
+  }
+
+  .resume-preview iframe {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    max-width: 900px;
+    width: 90%;
+    margin: auto;
+    display: block;
+  }
+  
+</style>
+
+
+  <script>
+    function openMenu() {
+      document.getElementById("menuOverlay").classList.add("active");
+    }
+  
+    function closeMenu() {
+      document.getElementById("menuOverlay").classList.remove("active");
+    }
+    function goToHero() {
+  // Scroll smoothly to hero section
+  document.getElementById('hero').scrollIntoView({ behavior: 'smooth' });
+  // Open menu overlay
+  openMenu();
+}
+
+  
+    // Close menu when any link is clicked
+    document.querySelectorAll('.menu-overlay a').forEach(link => {
+      link.addEventListener('click', () => {
+        closeMenu();
+      });
+    });
+    // Show floating menu button after scrolling 200px
+window.addEventListener('scroll', () => {
+  const scrollBtn = document.querySelector('.floating-menu-btn');
+  if (window.scrollY > 200) {
+    scrollBtn.classList.add('show');
+  } else {
+    scrollBtn.classList.remove('show');
+  }
+});
+
+  </script>
+
+<footer class="site-footer">
+  © 2025 Thejas. All rights reserved.
+  <style>
+    .site-footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #f0f0f0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+  </style>
+</footer>
+
+
+</body>
+</html>
